@@ -7,7 +7,7 @@ import { PostcardController } from 'src/controllers/postcard';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/new-year-2020'),
+    MongooseModule.forRoot(process.env.MONGODB_URI || 'mongodb://localhost:27017/new-year-2020'),
     MongooseModule.forFeature([{ name: 'Postcard', schema: Postcard }]),
   ],
   controllers: [AppController, PostcardController],
